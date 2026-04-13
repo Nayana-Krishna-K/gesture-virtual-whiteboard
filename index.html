@@ -6,7 +6,6 @@
 <title>PBL Presentation | 2026</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
@@ -19,13 +18,13 @@ body {
 }
 
 .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255,255,255,0.03);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #60a5fa, #a855f7);
+    background: linear-gradient(90deg,#60a5fa,#a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -34,111 +33,106 @@ body {
 
 <body>
 
-<main class="max-w-6xl mx-auto px-6 pt-32 pb-20 space-y-20">
-
 <!-- TITLE -->
-<section class="text-center">
+<section class="text-center pt-40 px-6">
 <h1 class="text-6xl font-extrabold mb-6 uppercase">
 <span class="gradient-text">Gesture-Based Virtual Whiteboard System</span>
 </h1>
 
-<p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
-A computer vision-based system that enables users to draw on a digital canvas using hand gestures captured through a webcam. 
-The system eliminates the need for physical input devices and provides a cost-effective, touchless solution for digital interaction.
+<p class="text-slate-400 max-w-2xl mx-auto italic text-lg">
+A computer vision-based system that enables users to draw on a digital canvas using hand gestures captured through a webcam, eliminating the need for physical input devices.
 </p>
 </section>
 
 <!-- PROBLEM -->
-<section class="grid md:grid-cols-2 gap-10">
-<div class="glass p-8 rounded-2xl">
-<h2 class="text-2xl font-bold mb-4">Problem Statement</h2>
-<p class="text-slate-400 text-sm leading-relaxed">
-Traditional digital writing tools such as stylus-based tablets and smart boards are expensive and require additional hardware. 
-This reduces accessibility, especially in online learning and virtual collaboration environments.
+<section class="grid md:grid-cols-2 gap-12 px-10 mt-32">
+
+<div class="glass p-10 rounded-3xl">
+<h2 class="text-3xl font-bold mb-4">Problem Statement</h2>
+<p class="text-slate-400">
+Traditional digital writing tools such as stylus-based tablets and smart boards require additional hardware and increase cost. Existing gesture-based systems often suffer from accuracy issues or complex setup. This limits accessibility and usability in real-world applications.
 </p>
 </div>
 
-<div class="glass p-8 rounded-2xl">
-<h2 class="text-2xl font-bold mb-4">Proposed Solution</h2>
-<p class="text-slate-400 text-sm leading-relaxed">
-The proposed system provides a cost-effective and touchless solution using computer vision. 
-It enables users to draw and interact using simple hand gestures without requiring any external devices.
+<div class="glass p-10 rounded-3xl">
+<h2 class="text-3xl font-bold mb-4">Proposed Solution</h2>
+<p class="text-slate-400">
+The proposed system provides a cost-effective and touchless solution using computer vision. It allows users to draw and interact using simple hand gestures with only a webcam, without requiring any external devices.
 </p>
 </div>
+
 </section>
 
 <!-- METHODOLOGY -->
-<section class="text-center space-y-10">
-<h2 class="text-3xl font-bold">System Methodology</h2>
+<section class="mt-32 px-10 text-center">
+<h2 class="text-4xl font-bold mb-10">System Methodology</h2>
 
-<div class="grid md:grid-cols-3 gap-6">
-<div class="glass p-6 rounded-xl">
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="glass p-8 rounded-3xl">
 <h3 class="font-bold mb-2">Input</h3>
 <p class="text-slate-400 text-sm">
-Live webcam video is used to capture real-time hand movements.
+Webcam captures real-time video of hand movements.
 </p>
 </div>
 
-<div class="glass p-6 rounded-xl">
+<div class="glass p-8 rounded-3xl">
 <h3 class="font-bold mb-2">Processing</h3>
 <p class="text-slate-400 text-sm">
-MediaPipe detects 21 hand landmarks and OpenCV processes gestures based on finger positions.
+MediaPipe detects hand landmarks and OpenCV processes gestures to track finger movement.
 </p>
 </div>
 
-<div class="glass p-6 rounded-xl">
+<div class="glass p-8 rounded-3xl">
 <h3 class="font-bold mb-2">Output</h3>
 <p class="text-slate-400 text-sm">
-Drawing, erasing, and color selection actions are displayed on a virtual canvas in real time.
+Drawing, erasing, and color selection are displayed on a virtual canvas.
 </p>
 </div>
+
 </div>
 </section>
 
 <!-- FEATURES -->
-<section class="space-y-8">
-<h2 class="text-3xl font-bold text-center">Key Features</h2>
+<section class="mt-32 px-10">
+<h2 class="text-4xl font-bold text-center mb-10">Key Features</h2>
 
-<div class="grid md:grid-cols-2 gap-4">
-<div class="glass p-4 rounded-xl">Real-time gesture-based drawing</div>
-<div class="glass p-4 rounded-xl">Touchless interaction</div>
-<div class="glass p-4 rounded-xl">Gesture-controlled erasing</div>
-<div class="glass p-4 rounded-xl">Color selection interface</div>
-<div class="glass p-4 rounded-xl">Dynamic brush size control</div>
-<div class="glass p-4 rounded-xl">Cost-effective solution</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="glass p-6 rounded-2xl">Real-time gesture-based drawing</div>
+<div class="glass p-6 rounded-2xl">Touchless interaction</div>
+<div class="glass p-6 rounded-2xl">Gesture-controlled erasing</div>
+<div class="glass p-6 rounded-2xl">Color selection using gestures</div>
+<div class="glass p-6 rounded-2xl">Smooth drawing using tracking</div>
+<div class="glass p-6 rounded-2xl">Low-cost and accessible system</div>
 </div>
 </section>
 
 <!-- RESULTS -->
-<section class="text-center space-y-6">
-<h2 class="text-3xl font-bold">Results</h2>
+<section class="mt-32 px-10 text-center">
+<h2 class="text-4xl font-bold mb-10">Results</h2>
 
-<p class="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-The system successfully detects hand gestures and enables smooth real-time drawing on a virtual canvas. 
-It performs effectively under proper lighting conditions and provides an interactive user experience.
+<p class="text-slate-400 max-w-2xl mx-auto">
+The system successfully detects hand gestures and allows smooth real-time drawing on a virtual canvas. It performs effectively under normal lighting conditions and provides an interactive user experience.
 </p>
 </section>
 
 <!-- APPLICATIONS -->
-<section class="text-center space-y-4">
-<h2 class="text-3xl font-bold">Applications</h2>
+<section class="mt-32 px-10 text-center">
+<h2 class="text-4xl font-bold mb-10">Applications</h2>
 
-<p class="text-slate-400 text-sm">
-Online teaching, virtual classrooms, content creation, virtual meetings, and digital drawing applications.
+<p class="text-slate-400">
+Online teaching, virtual meetings, content creation, digital drawing, and smart classrooms.
 </p>
 </section>
 
 <!-- FUTURE -->
-<section class="text-center space-y-4">
-<h2 class="text-3xl font-bold">Future Scope</h2>
+<section class="mt-32 px-10 text-center">
+<h2 class="text-4xl font-bold mb-10">Future Scope</h2>
 
-<p class="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-Future improvements include handwriting recognition to convert rough writing into clean text, 
-more color and pen options, improved zoom functionality, smoother drawing, and enhanced user interface.
+<p class="text-slate-400 max-w-2xl mx-auto">
+Future improvements include better gesture accuracy, smoother drawing, additional gesture controls, improved user interface, and converting the system into a complete desktop application.
 </p>
 </section>
-
-</main>
 
 </body>
 </html>
