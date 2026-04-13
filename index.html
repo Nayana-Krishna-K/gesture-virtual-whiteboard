@@ -1,278 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PBL Presentation | 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PBL Presentation | 2026</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
-        body {
-            background-color: #020617;
-            color: #f8fafc;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
-        }
+body {
+    background-color: #020617;
+    color: #f8fafc;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+}
 
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        .gradient-text {
-            background: linear-gradient(90deg, #60a5fa, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        #timerContainer {
-            background: #ffffff;
-            color: #020617;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            border: 3px solid #3b82f6;
-            z-index: 1000;
-        }
-
-        @keyframes flicker {
-            0%, 100% { background-color: #ffffff; }
-            50% { background-color: #fca5a5; }
-        }
-
-        .timer-warning {
-            animation: flicker 1s infinite;
-            border: 3px solid #ef4444 !important;
-            color: #b91c1c !important;
-        }
-
-        .timer-stop {
-            background-color: #991b1b !important;
-            color: #ffffff !important;
-            border: 3px solid #f87171 !important;
-            animation: none;
-        }
-    </style>
+.gradient-text {
+    background: linear-gradient(90deg, #60a5fa, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>
 </head>
 
-<body onload="startTimer()">
+<body>
 
-<div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all">
-    <i class="fas fa-hourglass-start text-blue-600 text-2xl" id="timerIcon"></i>
-    <span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
-</div>
+<!-- TITLE -->
+<section class="text-center pt-40 px-6">
+    <h1 class="text-6xl font-extrabold mb-6 uppercase">
+        <span class="gradient-text">Gesture-Based Virtual Whiteboard System</span>
+    </h1>
 
-<nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-4">
-        <div class="flex flex-col text-left">
-            <span class="text-xl font-black text-white leading-none uppercase tracking-tighter">
-                PBL <span class="text-blue-500 italic">2026</span>
-            </span>
-            <span class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1">
-                Dept. of Computer Science & Engineering
-            </span>
-        </div>
-    </div>
-</nav>
+    <p class="text-slate-400 max-w-2xl mx-auto italic text-lg">
+        A computer vision-based system that enables users to draw on a digital canvas
+        using hand gestures captured through a webcam, eliminating the need for physical input devices.
+    </p>
+</section>
 
-<main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
-
-    <!-- TITLE -->
-    <section class="text-center">
-        <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
-            ID: 2427030189
-        </div>
-
-        <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
-            <span class="gradient-text uppercase">Gesture-Based Virtual Whiteboard System</span>
-        </h1>
-
-        <p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
-            A computer vision based system that enables users to draw on a digital canvas
-            using hand gestures captured through a webcam, eliminating the need for physical input devices.
+<!-- PROBLEM -->
+<section class="grid md:grid-cols-2 gap-12 px-10 mt-32">
+    <div class="glass p-10 rounded-3xl">
+        <h2 class="text-3xl font-bold mb-4">Problem Statement</h2>
+        <p class="text-slate-400">
+            Traditional digital writing tools such as stylus-based tablets and smart boards are expensive and require additional hardware. This limits accessibility for many users, especially in online learning environments.
         </p>
-    </section>
+    </div>
 
-    <!-- PROBLEM -->
-    <section class="grid md:grid-cols-2 gap-12 items-stretch">
-        <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
-            <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
-            <p class="text-slate-400 leading-relaxed text-justify">
-                Traditional whiteboards and digital drawing tools rely on physical contact or specialized hardware
-                such as stylus pens, touchscreens, or interactive boards. These solutions increase cost and reduce
-                flexibility, especially in remote and smart learning environments.
+    <div class="glass p-10 rounded-3xl">
+        <h2 class="text-3xl font-bold mb-4">Proposed Solution</h2>
+        <p class="text-slate-400">
+            The proposed system provides a cost-effective and touchless solution using computer vision. It allows users to draw and interact using simple hand gestures without requiring any external devices.
+        </p>
+    </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="mt-32 px-10 text-center">
+    <h2 class="text-4xl font-bold mb-10">System Methodology</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-3xl">
+            <h3 class="font-bold mb-2">Input</h3>
+            <p class="text-slate-400 text-sm">
+                Webcam captures real-time video of hand movements.
             </p>
         </div>
 
-        <div class="space-y-6">
-            <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
-                <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">
-                    Existing Solutions
-                </h3>
-                <p class="text-sm text-slate-500 italic">
-                    Online whiteboards and gesture-based systems exist, but stylus-based tools depend on dedicated
-                    hardware, while many gesture-based solutions suffer from accuracy, latency, or complex setup.
-                </p>
-            </div>
-
-            <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
-                <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">
-                    Research Gap / Innovation
-                </h3>
-                <p class="text-sm text-slate-500 italic">
-                    This project explores a lightweight, webcam-based gesture whiteboard that reduces hardware
-                    dependency while improving accessibility through simplified, real-time interaction.
-                </p>
-            </div>
+        <div class="glass p-8 rounded-3xl">
+            <h3 class="font-bold mb-2">Processing</h3>
+            <p class="text-slate-400 text-sm">
+                MediaPipe detects hand landmarks and OpenCV processes gestures.
+            </p>
         </div>
-    </section>
 
-    <!-- METHODOLOGY -->
-    <section class="space-y-12">
-        <h2 class="text-4xl font-black text-center uppercase tracking-tight">
-            System <span class="text-blue-500">Methodology</span>
-        </h2>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass p-8 rounded-3xl text-center">
-                <i class="fas fa-video text-blue-500 text-3xl mb-4"></i>
-                <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Input</h3>
-                <p class="text-sm text-slate-500">
-                    Live webcam video used for real-time hand tracking.
-                </p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center">
-                <i class="fas fa-hand-paper text-purple-500 text-3xl mb-4"></i>
-                <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Processing</h3>
-                <p class="text-sm text-slate-500">
-                    Hand landmark detection and index finger tracking using computer vision.
-                </p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center border-2 border-green-500/20 bg-green-500/5">
-                <i class="fab fa-github text-green-500 text-3xl mb-4"></i>
-                <h3 class="font-bold mb-4 uppercase text-xs tracking-widest text-green-400">
-                    Source Code
-                </h3>
-                <a href="https://github.com/Nayana-Krishna-K/gesture-virtual-whiteboard"
-                   target="_blank"
-                   class="px-6 py-2 bg-green-600 rounded-full text-[10px] font-black hover:bg-green-500 transition shadow-lg">
-                    VIEW CODE
-                </a>
-            </div>
+        <div class="glass p-8 rounded-3xl">
+            <h3 class="font-bold mb-2">Output</h3>
+            <p class="text-slate-400 text-sm">
+                Drawing, erasing, and color selection are displayed on a virtual canvas.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- RESULTS -->
-    <section class="glass p-12 rounded-[3.5rem] border-t-4 border-blue-500">
-        <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
-            Results & <span class="text-blue-500">Outcome</span>
-        </h2>
+<!-- FEATURES -->
+<section class="mt-32 px-10">
+    <h2 class="text-4xl font-bold text-center mb-10">Key Features</h2>
 
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div class="h-80">
-                <canvas id="resultsChart"></canvas>
-            </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass p-6 rounded-2xl">Real-time gesture-based drawing</div>
+        <div class="glass p-6 rounded-2xl">Touchless interaction</div>
+        <div class="glass p-6 rounded-2xl">Gesture-controlled erasing</div>
+        <div class="glass p-6 rounded-2xl">Color selection interface</div>
+        <div class="glass p-6 rounded-2xl">Dynamic brush size control</div>
+        <div class="glass p-6 rounded-2xl">Cost-effective solution</div>
+    </div>
+</section>
 
-            <div class="space-y-6">
-                <div class="p-6 rounded-2xl bg-white/5 flex justify-between items-center border border-white/10 shadow-inner">
-                    <span class="text-slate-400 font-bold uppercase text-xs tracking-widest">
-                        Prototype Status
-                    </span>
-                    <span class="text-blue-400 font-mono font-black text-2xl">
-                        Successfully Working
-                    </span>
-                </div>
+<!-- RESULTS -->
+<section class="mt-32 px-10 text-center">
+    <h2 class="text-4xl font-bold mb-10">Results</h2>
 
-                <p class="text-slate-500 text-sm italic text-justify leading-relaxed">
-                    The developed prototype accurately detects hand gestures and enables smooth,
-                    real-time drawing on a virtual canvas under normal lighting conditions.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM -->
-    <section class="text-center pt-10 border-t border-slate-900">
-        <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
-            Academic Credits
-        </h2>
-
-        <div class="flex flex-wrap justify-center gap-10">
-            <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
-                <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
-                    Project Guide
-                </p>
-                <p class="font-black text-xl text-slate-100">
-                    DR JEYA KRISHNAN
-                </p>
-            </div>
-
-            <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
-                <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">
-                    Team Member
-                </p>
-                <p class="font-black text-xl text-slate-100">
-                    NAYANA KRISHNA K
-                </p>
-                <p class="text-[10px] text-slate-500 mt-1">
-                    2427030189
-                </p>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer class="py-12 text-center bg-black/40 border-t border-slate-900">
-    <p class="text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase mb-2">
-        Manipal University Jaipur
+    <p class="text-slate-400 max-w-2xl mx-auto">
+        The system successfully detects hand gestures and allows smooth real-time drawing.
+        It performs effectively under proper lighting conditions and provides an interactive user experience.
     </p>
-    <p class="text-slate-500 text-[9px] font-medium tracking-[0.2em] uppercase opacity-50">
-        Department of Computer Science & Engineering • 2026
+</section>
+
+<!-- APPLICATIONS -->
+<section class="mt-32 px-10 text-center">
+    <h2 class="text-4xl font-bold mb-10">Applications</h2>
+
+    <p class="text-slate-400">
+        Online teaching, virtual meetings, content creation, and digital drawing.
     </p>
-</footer>
+</section>
 
-<script>
-let sec = 0;
-function startTimer() {
-    setInterval(() => {
-        sec++;
-        let m = Math.floor(sec / 60);
-        let s = sec % 60;
-        document.getElementById('displayTime').innerText =
-            `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-    }, 1000);
-}
+<!-- FUTURE -->
+<section class="mt-32 px-10 text-center">
+    <h2 class="text-4xl font-bold mb-10">Future Scope</h2>
 
-const ctx = document.getElementById('resultsChart').getContext('2d');
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Existing Systems', 'Proposed System'],
-        datasets: [{
-            data: [70, 90],
-            backgroundColor: ['#1e293b', '#3b82f6'],
-            borderRadius: 15,
-            barThickness: 50
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-            y: { beginAtZero: true },
-            x: { grid: { display: false } }
-        }
-    }
-});
-</script>
+    <p class="text-slate-400 max-w-2xl mx-auto">
+        Future improvements include handwriting recognition for clean text conversion,
+        more color and pen options, improved zoom functionality, smoother drawing,
+        and enhanced user interface.
+    </p>
+</section>
 
 </body>
 </html>
