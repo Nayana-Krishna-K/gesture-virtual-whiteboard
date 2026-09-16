@@ -1,167 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Olfaction | PBL 2026</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-    body { background-color:#020617; color:#f8fafc; font-family:'Plus Jakarta Sans',sans-serif; scroll-behavior:smooth; }
-    .glass { background:rgba(255,255,255,.03); backdrop-filter:blur(15px); border:1px solid rgba(255,255,255,.1); }
-    .gradient-text { background:linear-gradient(90deg,#60a5fa,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    #timerContainer { background:#fff; color:#020617; box-shadow:0 10px 40px rgba(0,0,0,.8); border:3px solid #3b82f6; z-index:1000; }
-    @keyframes flicker { 0%,100%{background-color:#fff} 50%{background-color:#fca5a5} }
-    .timer-warning { animation:flicker 1s infinite; border:3px solid #ef4444!important; color:#b91c1c!important; }
-    .timer-stop { background:#991b1b!important; color:#fff!important; border:3px solid #f87171!important; animation:none; }
-  </style>
-</head>
-<body>
-  <div id="timerContainer" class="fixed bottom-6 right-6 px-5 py-3 rounded-2xl flex items-center gap-3 transition-all">
-    <i class="fas fa-hourglass-start text-blue-600 text-xl" id="timerIcon"></i>
-    <span id="displayTime" class="text-2xl font-black font-mono tracking-tighter">00:00</span>
-  </div>
-
-  <nav class="fixed top-0 w-full z-50 glass border-b border-slate-800/50 px-6 md:px-8 py-4 flex justify-between items-center">
-    <div class="flex flex-col text-left">
-      <span class="text-xl font-black text-white leading-none uppercase tracking-tighter">PBL <span class="text-blue-500 italic">2026</span></span>
-      <span class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1">Department of Computer Science &amp; Engineering</span>
-    </div>
-    <a href="#overview" class="text-xs text-slate-300 hover:text-white">Project overview</a>
-  </nav>
-
-  <main id="overview" class="max-w-6xl mx-auto px-6 pt-36 md:pt-44 pb-24 space-y-24 md:space-y-32">
-    <section class="text-center">
-      <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">Registration No: 2427030189</div>
-      <h1 class="text-4xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
-        <span class="gradient-text">Digital Olfaction: A Machine Learning Framework for Chemical Pattern Classification</span>
-      </h1>
-      <p class="text-slate-400 max-w-3xl mx-auto italic text-base md:text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
-        Environmental Monitoring • Hazardous Gas Recognition • Food Freshness Classification
-      </p>
-    </section>
-
-    <section class="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
-      <div class="glass p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
-        <h2 class="text-2xl md:text-3xl font-extrabold mb-5">Problem Statement</h2>
-        <p class="text-slate-400 leading-relaxed text-justify">
-          Electronic-nose systems use groups of chemical sensors to produce numerical response patterns. This project investigates how machine learning can interpret these patterns across three application areas: environmental monitoring, hazardous gas recognition, and food freshness classification. The framework focuses on classifying sensor data into the categories represented in the selected dataset.
-        </p>
-      </div>
-      <div class="space-y-5">
-        <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
-          <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Project Motivation</h3>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            Digital olfaction translates chemical-sensor responses into patterns that software can analyze. The project explores how this approach may support environmental change monitoring, recognition of selected hazardous-gas patterns, and classification of food freshness when paired with suitable sensing technology.
-          </p>
-        </div>
-        <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
-          <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">Research Focus</h3>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            The study examines how supervised machine learning maps multi-variable sensor readings to known categories. The dataset determines which chemical classes can be evaluated, and model performance will be assessed using data held aside during training.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="space-y-10">
-      <h2 class="text-3xl md:text-4xl font-black text-center uppercase tracking-tight">System <span class="text-blue-500">Methodology</span></h2>
-      <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-        <div class="glass p-8 rounded-3xl text-center">
-          <i class="fas fa-table text-blue-500 text-3xl mb-4"></i>
-          <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Input Data</h3>
-          <p class="text-sm text-slate-400">Organized numerical readings from multiple electronic-nose sensors, paired with their recorded category labels.</p>
-        </div>
-        <div class="glass p-8 rounded-3xl text-center">
-          <i class="fas fa-brain text-purple-500 text-3xl mb-4"></i>
-          <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Machine Learning</h3>
-          <p class="text-sm text-slate-400">Data preparation and Random Forest model training using Python and scikit-learn in Google Colab.</p>
-        </div>
-        <div class="glass p-8 rounded-3xl text-center border-2 border-green-500/20 bg-green-500/5">
-          <i class="fas fa-chart-line text-green-500 text-3xl mb-4"></i>
-          <h3 class="font-bold mb-2 uppercase tracking-widest text-green-400">Evaluation</h3>
-          <p class="text-sm text-slate-400">Testing the trained model and reporting accuracy alongside class-wise evaluation metrics.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border-t-4 border-blue-500">
-      <h2 class="text-2xl md:text-3xl font-black mb-8 text-center uppercase tracking-tight">Expected <span class="text-blue-500">Outcome</span></h2>
-      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-        <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
-          <p class="text-blue-300 font-mono font-bold text-center text-lg">A trained classification model</p>
-          <p class="text-slate-400 text-sm text-center mt-3">The model will generate predicted categories and a performance report from the selected sensor dataset.</p>
-        </div>
-        <div class="space-y-5">
-          <div class="p-5 rounded-2xl bg-white/5 flex flex-wrap justify-between gap-2 items-center border border-white/10">
-            <span class="text-slate-400 font-bold uppercase text-xs tracking-widest">Implementation</span>
-            <span class="text-blue-300 font-mono font-bold">Python · Google Colab</span>
-          </div>
-          <p class="text-slate-400 text-sm leading-relaxed text-justify">
-            The project deliverables are a reproducible software experiment and a research paper describing the dataset, model-building process, evaluation results, and potential relevance to future digital-olfaction applications.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="text-center pt-8 border-t border-slate-900">
-      <h2 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.5em] mb-10">Academic Credits</h2>
-      <div class="flex flex-wrap justify-center gap-6 md:gap-10">
-        <div class="glass px-8 md:px-12 py-7 rounded-[2rem] border-b-4 border-blue-600">
-          <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">Project Guide</p>
-          <p class="font-black text-lg md:text-xl text-slate-100">DR JEYA KRISHNAN</p>
-        </div>
-        <div class="glass px-8 md:px-12 py-7 rounded-[2rem] border-b-4 border-slate-700">
-          <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Team Member</p>
-          <p class="font-black text-lg md:text-xl text-slate-100">NAYANA KRISHNA K</p>
-          <p class="text-[10px] text-slate-500 mt-1">2427030189</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="py-10 text-center bg-black/40 border-t border-slate-900">
-    <p class="text-slate-400 text-xs font-bold tracking-[0.2em] uppercase mb-2">Manipal University Jaipur</p>
-    <p class="text-slate-500 text-[9px] font-medium tracking-[0.15em] uppercase">Department of Computer Science &amp; Engineering • 2026</p>
-  </footer>
-
-  <script>
-    (() => {
-      let seconds = 0;
-      const display = document.getElementById('displayTime');
-      const container = document.getElementById('timerContainer');
-      const icon = document.getElementById('timerIcon');
-      setInterval(() => {
-        seconds += 1;
-        const minutes = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        display.textContent = String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
-        if (seconds >= 240) container.classList.add('timer-warning');
-        if (seconds >= 300) {
-          container.classList.remove('timer-warning');
-          container.classList.add('timer-stop');
-          icon.className = 'fas fa-hourglass-end text-xl';
-        }
-      }, 1000);
-    })();
-  </script>
-
-<section id="application-scope" class="max-w-6xl mx-auto px-6 pb-16">
-  <div class="glass p-8 rounded-3xl">
-    <h2 class="text-2xl font-extrabold mb-4">Application Scope</h2>
-    <p class="text-slate-300 leading-relaxed">
-      This project explores how machine learning can interpret chemical-sensor patterns
-      across three application areas: environmental monitoring, hazardous gas recognition,
-      and food freshness classification, including fresh and spoiled states where the
-      selected dataset provides those labels.
-    </p>
-    <p class="text-slate-400 text-sm leading-relaxed mt-3">
-      The framework focuses on chemical-pattern analysis for use across different
-      environmental and consumer-safety settings.
-    </p>
-  </div>
+<!doctype html><n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Digital Olfaction | PBL 2026</title><style>
+:root{--bg:#07111f;--panel:#102039;--card:#142740;--line:#2b405b;--text:#edf4ff;--muted:#adbed2;--blue:#80c2ff;--green:#7de0b3;--amber:#ffd27c}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#152b49,var(--bg) 58%);color:var(--text);font:16px/1.65 system-ui,Segoe UI,sans-serif}.wrap{width:min(1100px,calc(100% - 32px));margin:auto}nav{position:sticky;top:0;background:#07111fee;border-bottom:1px solid var(--line);z-index:4}.nav{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:13px 0}.brand{font-weight:900;letter-spacing:.1em}.brand span{color:var(--blue)}.links{display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem}.links a{color:var(--muted);text-decoration:none}.hero{text-align:center;padding:68px 0 42px}.eyebrow,.tag{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:4px 11px;color:var(--muted);font-size:.75rem}.hero h1{font-size:clamp(2rem,5vw,4rem);line-height:1.12;letter-spacing:-.04em;color:#a9d4ff;margin:22px auto;max-width:950px}.subtitle{color:var(--muted);font-size:1.15rem}.meta{color:var(--muted);margin-top:22px}section{padding:35px 0;scroll-margin-top:75px}.head{margin-bottom:22px}.kicker{color:var(--blue);font-size:.75rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.head h2{font-size:clamp(1.6rem,3vw,2.35rem);line-height:1.2;margin:5px 0}.lead,.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:15px}.card{background:linear-gradient(145deg,#142740f2,#0c1a2bf2);border:1px solid var(--line);border-radius:18px;padding:22px;min-width:0}.s12{grid-column:span 12}.s8{grid-column:span 8}.s6{grid-column:span 6}.s4{grid-column:span 4}.card h3{margin:0 0 8px}.tag{background:#1b3552;color:#c5e2ff;border:0;border-radius:7px;margin:3px}.callout{border-left:4px solid var(--amber);background:#34291b66;padding:14px 17px;border-radius:0 12px 12px 0;color:#ffe6b2}.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.step{padding:15px;border:1px solid var(--line);border-radius:14px;background:#0b192a}.num{width:29px;height:29px;display:grid;place-items:center;background:#244b73;border-radius:50%;font-weight:800;margin-bottom:8px}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.metric{background:#091625;border:1px solid var(--line);border-radius:14px;padding:16px}.metric strong{display:block;font-size:1.8rem;color:var(--blue);line-height:1.3}.metric small{color:var(--muted)}.chart{background:#091625;border:1px solid var(--line);border-radius:13px;padding:15px}.bars{display:grid;gap:12px}.barrow{display:grid;grid-template-columns:95px 1fr 42px;gap:8px;align-items:center;font-size:.83rem}.track{height:12px;background:#24364d;border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#75bdff,#b6a1ff);border-radius:99px}.fill.g{background:linear-gradient(90deg,#53c99b,#a1ebc9)}.fill.a{background:linear-gradient(90deg,#dba64d,#ffdb91)}.matrix{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.cell{padding:13px 4px;text-align:center;border-radius:7px;background:#1a3049}.cell.diag{background:#1c654f;color:#e5fff5;font-weight:800}.cell.err{background:#795023;color:#fff0d4;font-weight:800}.cell.h{background:transparent;color:var(--muted);font-size:.73rem;padding:5px 2px}table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:#d6e6f8}td{color:var(--muted)}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#06101c;border:1px solid var(--line);padding:16px;border-radius:12px;color:#d9e8fa;font-size:.83rem}footer{text-align:center;border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem;margin-top:25px}@media(max-width:760px){.s8,.s6,.s4{grid-column:span 12}.steps{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.links{display:none}}@media(max-width:440px){.steps{grid-template-columns:1fr}.barrow{grid-template-columns:76px 1fr 38px;font-size:.76rem}.card{padding:16px}}
+</style></head><body>
+<nav><div class="wrap nav"><div class="brand">PBL <span>2026</span></div><div class="links"><a href="#overview">Overview</a><a href="#background">Background</a><a href="#method">Methodology</a><a href="#demo">Demo results</a><a href="#limits">Limitations</a></div></div></nav>
+<header class="hero wrap" id="overview"><div class="eyebrow">Manipal University Jaipur · CSE · PBL Research</div><h1>Digital Olfaction: A Machine Learning Framework for Chemical Pattern Classification</h1><p class="subtitle">Environmental Monitoring • Hazardous Gas Recognition • Food Freshness Classification</p><div class="meta">Nayana Krishna K · Registration No. 2427030189<br>Project Guide: Dr Jeya Krishnan</div></header>
+<main class="wrap">
+<section><div class="grid"><article class="card s8"><div class="kicker">Problem statement</div><h2>Turning sensor response patterns into meaningful classes</h2><p class="muted">Electronic-nose systems use groups of chemical sensors to produce numerical response patterns. This project investigates whether supervised machine learning can map such patterns to known categories. Each experiment must be limited to the classes actually represented in its dataset.</p></article><article class="card s4"><div class="kicker">Project format</div><h3>Software-only research</h3><p class="muted">Implementation in Python and Google Colab using recorded, labelled data. No physical sensor hardware is being built.</p><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">Colab</span></article></div></section>
+<section id="background"><div class="head"><div class="kicker">01 · Background</div><h2>What is digital olfaction?</h2><p class="lead">Digital olfaction is computational analysis of chemical-sensor responses. A sensor array produces numerical readings; a model trained on labelled examples can use those readings to predict a category.</p></div><div class="grid"><article class="card s4"><h3>1. Chemical exposure</h3><p class="muted">Chemical conditions interact with sensing elements and may produce different response patterns.</p></article><article class="card s4"><h3>2. Numerical response</h3><p class="muted">Sensor responses are represented as values across multiple features, forming the model input.</p></article><article class="card s4"><h3>3. Pattern classification</h3><p class="muted">The trained model uses learned patterns to predict one of the dataset’s supported labels.</p></article></div><p class="callout"><b>Scope note:</b> The software does not itself smell or measure chemicals. It analyzes sensor data supplied to it. Prediction quality depends on the sensor, dataset, labels, and evaluation design.</p></section>
+<section><div class="head"><div class="kicker">02 · Application areas</div><h2>Potential application areas</h2><p class="lead">These are intended areas of exploration—not claims that the current demo has validated all three.</p></div><div class="grid"><article class="card s4"><h3>Environmental monitoring</h3><p class="muted">Analyze patterns associated with selected environmental conditions when the dataset contains relevant measurements and labels.</p></article><article class="card s4"><h3>Hazardous-gas recognition</h3><p class="muted">Explore classification of selected gas-related patterns. A real safety system needs suitable sensors, validation, and fail-safe design.</p></article><article class="card s4"><h3>Food freshness</h3><p class="muted">Explore fresh/spoiled or other food-condition labels only when supported by reliable dataset labels.</p></article></div></section>
+<section><div class="head"><div class="kicker">03 · Research direction</div><h2>Research question &amp; objectives</h2></div><div class="grid"><article class="card s6"><h3>Research question</h3><p class="muted">Can supervised machine learning classify chemical-sensor response patterns into the labelled categories available in a selected dataset?</p></article><article class="card s6"><h3>Objectives</h3><ul class="muted"><li>Find and inspect a suitable labelled dataset.</li><li>Prepare numerical features and class labels.</li><li>Train an initial Random Forest classifier.</li><li>Evaluate on held-out data.</li><li>Document limitations and next steps.</li></ul></article><article class="card s12"><h3>Research gap to investigate</h3><p class="muted">Model performance depends on dataset, sensing conditions, and class definitions. This study will examine whether a straightforward supervised-learning pipeline produces reproducible results on a selected dataset. This is a proposed focus; a literature review is needed before claiming novelty.</p></article></div></section>
+<section id="method"><div class="head"><div class="kicker">04 · Methodology</div><h2>End-to-end implementation workflow</h2><p class="lead">The workflow below will be applied to a real dataset after its features and labels are verified.</p></div><div class="steps"><div class="step"><div class="num">1</div><h3>Dataset</h3><p class="muted">Find public labelled sensor data; verify what was measured.</p></div><div class="step"><div class="num">2</div><h3>Inspect</h3><p class="muted">Review columns, labels, missing values, and class balance.</p></div><div class="step"><div class="num">3</div><h3>Split</h3><p class="muted">Separate training data from held-out test data.</p></div><div class="step"><div class="num">4</div><h3>Train</h3><p class="muted">Fit a Random Forest using training examples.</p></div><div class="step"><div class="num">5</div><h3>Evaluate</h3><p class="muted">Report accuracy, precision, recall, F1, and confusion matrix.</p></div></div><div class="grid" style="margin-top:15px"><article class="card s6"><h3>Data preparation</h3><p class="muted">Pandas will organize the dataset as a table. <code>X</code> contains numerical input features and <code>y</code> contains known labels. Preprocessing decisions will be documented.</p></article><article class="card s6"><h3>Model choice: Random Forest</h3><p class="muted">Random Forest combines predictions from multiple decision trees. It is an initial baseline for tabular classification. The demo uses 100 trees; later work may compare models and settings.</p></article></div></section>
+<section><div class="head"><div class="kicker">05 · Current implementation</div><h2>What the demo code demonstrates</h2><p class="lead">The current notebook generates artificial data to test that the code pipeline runs. It is not a real chemical-sensor experiment.</p></div><div class="metrics"><div class="metric"><strong>300</strong><small>Generated samples</small></div><div class="metric"><strong>16</strong><small>Artificial input features</small></div><div class="metric"><strong>3</strong><small>Artificial classes</small></div><div class="metric"><strong>80 / 20</strong><small>Train / test split</small></div></div><div class="grid" style="margin-top:15px"><article class="card s6"><h3>Demo settings</h3><ul class="muted"><li>Data generator: <code>make_classification</code></li><li>240 training and 60 test examples</li><li>Stratified split to preserve class proportions</li><li>Random Forest with 100 trees</li></ul></article><article class="card s6"><h3>Interpretation</h3><p class="muted">The score measures agreement with artificial labels. It does not measure accuracy on real gases, food freshness, or environmental samples.</p><p class="callout"><b>Do not present 93.33% as real-world detection accuracy.</b></p></article></div></section>
+<section id="demo">
+<div class="section-head"><div class="kicker">06 · Demo result</div><h2>Model accuracy</h2><p class="lead">The current demonstration uses generated sample data to show the machine-learning workflow.</p></div>
+<div class="card" style="text-align:center;padding:34px">
+<div class="kicker">Demo accuracy</div>
+<div style="font-size:clamp(3rem,8vw,5.5rem);font-weight:900;line-height:1.15;color:var(--blue);margin:12px 0">93.33%</div>
+<p class="muted" style="margin:0">56 correctly classified out of 60 generated test samples</p>
+</div>
+<div class="card" style="margin-top:16px">
+<h3>Code used to display the accuracy</h3>
+<pre>accuracy = accuracy_score(y_test, predictions) * 100
+print("Demo accuracy:", round(accuracy, 2), "%")</pre>
+<p class="muted" style="margin-bottom:0">This is the result from the current demo dataset; it is not a measured accuracy for real chemical-sensor data.</p>
+</div>
 </section>
-
-</body>
-</html>
+<section><div class="head"><div class="kicker">07 · Evaluation plan</div><h2>How the real-data experiment will be assessed</h2></div><div class="grid"><article class="card s6"><h3>Evaluation metrics</h3><ul class="muted"><li><b>Accuracy:</b> proportion of all predictions that are correct.</li><li><b>Precision:</b> reliability of predictions for a class.</li><li><b>Recall:</b> proportion of actual class examples correctly found.</li><li><b>F1-score:</b> combined precision and recall measure.</li><li><b>Confusion matrix:</b> shows which classes are mistaken for others.</li></ul></article><article class="card s6"><h3>Validation safeguards</h3><ul class="muted"><li>Keep test data separate from training.</li><li>Check for repeated-sample leakage across splits.</li><li>Report dataset source and class counts.</li><li>Use only labels supported by the dataset.</li><li>Discuss limitations; avoid overstating safety capability.</li></ul></article></div></section>
+<section><div class="head"><div class="kicker">09 · Planned next steps</div><h2>From demo to research experiment</h2></div><div class="card"><ol class="muted"><li>Select a public dataset that matches one clearly defined task.</li><li>Verify its source, sensor features, labels, and collection conditions.</li><li>Replace artificial data with real recorded data in Colab.</li><li>Train and evaluate with a documented split and suitable metrics.</li><li>Compare a baseline model if time permits.</li><li>Write up findings, limitations, and future research directions.</li></ol></div></section>
+<section><div class="head"><div class="kicker">10 · Conclusion</div><h2>From a working pipeline to a validated experiment</h2></div><div class="card"><p class="muted">The current implementation demonstrates data creation, feature organization, train/test splitting, Random Forest training, prediction, and evaluation. The next milestone is to repeat this workflow using real, labelled chemical-sensor data and report only conclusions supported by that experiment.</p></div></section>
+</main><footer><div class="wrap">Manipal University Jaipur · Department of Computer Science &amp; Engineering · PBL 2026<br>Nayana Krishna K · 2427030189 · Project Guide: Dr Jeya Krishnan</div></footer></body></html>
