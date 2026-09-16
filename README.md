@@ -1,2 +1,2 @@
-# gesture-virtual-whiteboard
-Gesture-based virtual whiteboard using computer vision
+# DIGITAL-OLFACTION
+A MACHINE LEARNING FRAMEWORK FOR CHEMICAL PATTERN CLASSIFICATION
