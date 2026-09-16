@@ -1,281 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PBL Presentation | 2026</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-
-body {
-    background-color: #020617;
-    color: #f8fafc;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    scroll-behavior: smooth;
-}
-
-.glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.gradient-text {
-    background: linear-gradient(90deg, #60a5fa, #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#timerContainer {
-    background: #ffffff;
-    color: #020617;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-    border: 3px solid #3b82f6;
-    z-index: 1000;
-}
-
-@keyframes flicker {
-    0%, 100% { background-color: #ffffff; }
-    50% { background-color: #fca5a5; }
-}
-
-.timer-warning {
-    animation: flicker 1s infinite;
-    border: 3px solid #ef4444 !important;
-    color: #b91c1c !important;
-}
-
-.timer-stop {
-    background-color: #991b1b !important;
-    color: #ffffff !important;
-    border: 3px solid #f87171 !important;
-    animation: none;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Olfaction | PBL 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+    body { background-color:#020617; color:#f8fafc; font-family:'Plus Jakarta Sans',sans-serif; scroll-behavior:smooth; }
+    .glass { background:rgba(255,255,255,.03); backdrop-filter:blur(15px); border:1px solid rgba(255,255,255,.1); }
+    .gradient-text { background:linear-gradient(90deg,#60a5fa,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    #timerContainer { background:#fff; color:#020617; box-shadow:0 10px 40px rgba(0,0,0,.8); border:3px solid #3b82f6; z-index:1000; }
+    @keyframes flicker { 0%,100%{background-color:#fff} 50%{background-color:#fca5a5} }
+    .timer-warning { animation:flicker 1s infinite; border:3px solid #ef4444!important; color:#b91c1c!important; }
+    .timer-stop { background:#991b1b!important; color:#fff!important; border:3px solid #f87171!important; animation:none; }
+  </style>
 </head>
+<body>
+  <div id="timerContainer" class="fixed bottom-6 right-6 px-5 py-3 rounded-2xl flex items-center gap-3 transition-all">
+    <i class="fas fa-hourglass-start text-blue-600 text-xl" id="timerIcon"></i>
+    <span id="displayTime" class="text-2xl font-black font-mono tracking-tighter">00:00</span>
+  </div>
 
-<body onload="startTimer()">
+  <nav class="fixed top-0 w-full z-50 glass border-b border-slate-800/50 px-6 md:px-8 py-4 flex justify-between items-center">
+    <div class="flex flex-col text-left">
+      <span class="text-xl font-black text-white leading-none uppercase tracking-tighter">PBL <span class="text-blue-500 italic">2026</span></span>
+      <span class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1">Department of Computer Science &amp; Engineering</span>
+    </div>
+    <a href="#overview" class="text-xs text-slate-300 hover:text-white">Project overview</a>
+  </nav>
 
-<div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all">
-<i class="fas fa-hourglass-start text-blue-600 text-2xl" id="timerIcon"></i>
-<span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
-</div>
+  <main id="overview" class="max-w-6xl mx-auto px-6 pt-36 md:pt-44 pb-24 space-y-24 md:space-y-32">
+    <section class="text-center">
+      <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">Registration No: 2427030189</div>
+      <h1 class="text-4xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
+        <span class="gradient-text">Digital Olfaction: A Machine Learning Framework for Chemical Pattern Classification</span>
+      </h1>
+      <p class="text-slate-400 max-w-3xl mx-auto italic text-base md:text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
+        Environmental Monitoring • Hazardous Gas Recognition • Food Freshness Classification
+      </p>
+    </section>
 
-<nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
-<div class="flex items-center gap-4">
-<div class="flex flex-col text-left">
-<span class="text-xl font-black text-white leading-none uppercase tracking-tighter">
-PBL <span class="text-blue-500 italic">2026</span>
-</span>
-<span class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1">
-Dept. of Computer Science & Engineering
-</span>
-</div>
-</div>
-</nav>
+    <section class="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+      <div class="glass p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-5">Problem Statement</h2>
+        <p class="text-slate-400 leading-relaxed text-justify">
+          Electronic-nose systems use groups of chemical sensors to produce numerical response patterns. This project investigates how machine learning can interpret these patterns across three application areas: environmental monitoring, hazardous gas recognition, and food freshness classification. The framework focuses on classifying sensor data into the categories represented in the selected dataset.
+        </p>
+      </div>
+      <div class="space-y-5">
+        <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
+          <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Project Motivation</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Digital olfaction translates chemical-sensor responses into patterns that software can analyze. The project explores how this approach may support environmental change monitoring, recognition of selected hazardous-gas patterns, and classification of food freshness when paired with suitable sensing technology.
+          </p>
+        </div>
+        <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
+          <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">Research Focus</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            The study examines how supervised machine learning maps multi-variable sensor readings to known categories. The dataset determines which chemical classes can be evaluated, and model performance will be assessed using data held aside during training.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
+    <section class="space-y-10">
+      <h2 class="text-3xl md:text-4xl font-black text-center uppercase tracking-tight">System <span class="text-blue-500">Methodology</span></h2>
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div class="glass p-8 rounded-3xl text-center">
+          <i class="fas fa-table text-blue-500 text-3xl mb-4"></i>
+          <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Input Data</h3>
+          <p class="text-sm text-slate-400">Organized numerical readings from multiple electronic-nose sensors, paired with their recorded category labels.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl text-center">
+          <i class="fas fa-brain text-purple-500 text-3xl mb-4"></i>
+          <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Machine Learning</h3>
+          <p class="text-sm text-slate-400">Data preparation and Random Forest model training using Python and scikit-learn in Google Colab.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl text-center border-2 border-green-500/20 bg-green-500/5">
+          <i class="fas fa-chart-line text-green-500 text-3xl mb-4"></i>
+          <h3 class="font-bold mb-2 uppercase tracking-widest text-green-400">Evaluation</h3>
+          <p class="text-sm text-slate-400">Testing the trained model and reporting accuracy alongside class-wise evaluation metrics.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- TITLE -->
-<section class="text-center">
-<div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
-ID: 2427030189
-</div>
+    <section class="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border-t-4 border-blue-500">
+      <h2 class="text-2xl md:text-3xl font-black mb-8 text-center uppercase tracking-tight">Expected <span class="text-blue-500">Outcome</span></h2>
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+          <p class="text-blue-300 font-mono font-bold text-center text-lg">A trained classification model</p>
+          <p class="text-slate-400 text-sm text-center mt-3">The model will generate predicted categories and a performance report from the selected sensor dataset.</p>
+        </div>
+        <div class="space-y-5">
+          <div class="p-5 rounded-2xl bg-white/5 flex flex-wrap justify-between gap-2 items-center border border-white/10">
+            <span class="text-slate-400 font-bold uppercase text-xs tracking-widest">Implementation</span>
+            <span class="text-blue-300 font-mono font-bold">Python · Google Colab</span>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed text-justify">
+            The project deliverables are a reproducible software experiment and a research paper describing the dataset, model-building process, evaluation results, and potential relevance to future digital-olfaction applications.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
-<span class="gradient-text uppercase">Gesture-Based Virtual Whiteboard System</span>
-</h1>
+    <section class="text-center pt-8 border-t border-slate-900">
+      <h2 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.5em] mb-10">Academic Credits</h2>
+      <div class="flex flex-wrap justify-center gap-6 md:gap-10">
+        <div class="glass px-8 md:px-12 py-7 rounded-[2rem] border-b-4 border-blue-600">
+          <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">Project Guide</p>
+          <p class="font-black text-lg md:text-xl text-slate-100">DR JEYA KRISHNAN</p>
+        </div>
+        <div class="glass px-8 md:px-12 py-7 rounded-[2rem] border-b-4 border-slate-700">
+          <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Team Member</p>
+          <p class="font-black text-lg md:text-xl text-slate-100">NAYANA KRISHNA K</p>
+          <p class="text-[10px] text-slate-500 mt-1">2427030189</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
-A computer vision-based system that enables users to draw on a digital canvas using hand gestures captured through a webcam, eliminating the need for physical input devices.
-</p>
-</section>
+  <footer class="py-10 text-center bg-black/40 border-t border-slate-900">
+    <p class="text-slate-400 text-xs font-bold tracking-[0.2em] uppercase mb-2">Manipal University Jaipur</p>
+    <p class="text-slate-500 text-[9px] font-medium tracking-[0.15em] uppercase">Department of Computer Science &amp; Engineering • 2026</p>
+  </footer>
 
-<!-- PROBLEM -->
-<section class="grid md:grid-cols-2 gap-12 items-stretch">
-<div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
-<h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
-<p class="text-slate-400 leading-relaxed text-justify">
-Traditional whiteboards and digital drawing tools rely on physical contact or specialized hardware such as stylus pens, touchscreens, or interactive boards. These solutions increase cost and reduce flexibility, especially in remote and smart learning environments.
-</p>
-</div>
-
-<div class="space-y-6">
-
-<div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
-<h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">
-Existing Solutions
-</h3>
-<p class="text-sm text-slate-500 italic">
-Online whiteboards and gesture-based systems exist, but stylus-based tools depend on dedicated hardware, while many gesture-based solutions suffer from accuracy, latency, or complex setup.
-</p>
-</div>
-
-<div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
-<h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">
-Research Gap / Innovation
-</h3>
-<p class="text-sm text-slate-500 italic">
-This project introduces a lightweight webcam-based system that enables real-time drawing using hand gestures, removing the dependency on expensive hardware.
-</p>
-</div>
-
-</div>
-</section>
-
-<!-- METHODOLOGY -->
-<section class="space-y-12">
-<h2 class="text-4xl font-black text-center uppercase tracking-tight">
-System <span class="text-blue-500">Methodology</span>
-</h2>
-
-<div class="grid md:grid-cols-3 gap-8">
-
-<div class="glass p-8 rounded-3xl text-center">
-<i class="fas fa-video text-blue-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Input</h3>
-<p class="text-sm text-slate-500">
-Live webcam video used for real-time hand tracking.
-</p>
-</div>
-
-<div class="glass p-8 rounded-3xl text-center">
-<i class="fas fa-hand-paper text-purple-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Processing</h3>
-<p class="text-sm text-slate-500">
-Hand landmark detection using MediaPipe and gesture interpretation using OpenCV.
-</p>
-</div>
-
-<div class="glass p-8 rounded-3xl text-center border-2 border-green-500/20 bg-green-500/5">
-<i class="fab fa-github text-green-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-4 uppercase text-xs tracking-widest text-green-400">
-Source Code
-</h3>
-<a href="https://github.com/Nayana-Krishna-K/gesture-virtual-whiteboard"
-target="_blank"
-class="px-6 py-2 bg-green-600 rounded-full text-[10px] font-black hover:bg-green-500 transition shadow-lg">
-VIEW CODE
-</a>
-</div>
-
-</div>
-</section>
-
-<!-- RESULTS -->
-<section class="glass p-12 rounded-[3.5rem] border-t-4 border-blue-500">
-<h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
-Results & <span class="text-blue-500">Outcome</span>
-</h2>
-
-<div class="grid md:grid-cols-2 gap-16 items-center">
-
-<div class="h-80">
-<canvas id="resultsChart"></canvas>
-</div>
-
-<div class="space-y-6">
-
-<div class="p-6 rounded-2xl bg-white/5 flex justify-between items-center border border-white/10 shadow-inner">
-<span class="text-slate-400 font-bold uppercase text-xs tracking-widest">
-Prototype Status
-</span>
-<span class="text-blue-400 font-mono font-black text-2xl">
-Successfully Working
-</span>
-</div>
-
-<p class="text-slate-500 text-sm italic text-justify leading-relaxed">
-The developed prototype accurately detects hand gestures and enables smooth real-time drawing, erasing and changing color as well as zoom functions on a virtual canvas.
-</p>
-
-</div>
-</div>
-</section>
-
-<!-- TEAM -->
-<section class="text-center pt-10 border-t border-slate-900">
-<h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
-Academic Credits
-</h2>
-
-<div class="flex flex-wrap justify-center gap-10">
-
-<div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
-<p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
-Project Guide
-</p>
-<p class="font-black text-xl text-slate-100">
-DR JEYA KRISHNAN
-</p>
-</div>
-
-<div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
-<p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">
-Team Member
-</p>
-<p class="font-black text-xl text-slate-100">
-NAYANA KRISHNA K
-</p>
-<p class="text-[10px] text-slate-500 mt-1">
-2427030189
-</p>
-</div>
-
-</div>
-</section>
-
-</main>
-
-<footer class="py-12 text-center bg-black/40 border-t border-slate-900">
-<p class="text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase mb-2">
-Manipal University Jaipur
-</p>
-<p class="text-slate-500 text-[9px] font-medium tracking-[0.2em] uppercase opacity-50">
-Department of Computer Science & Engineering • 2026
-</p>
-</footer>
-
-<script>
-let sec = 0;
-function startTimer() {
-    setInterval(() => {
-        sec++;
-        let m = Math.floor(sec / 60);
-        let s = sec % 60;
-        document.getElementById('displayTime').innerText =
-            m.toString().padStart(2,'0') + ":" + s.toString().padStart(2,'0');
-    }, 1000);
-}
-
-const ctx = document.getElementById('resultsChart').getContext('2d');
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Existing Systems', 'Proposed System'],
-        datasets: [{
-            data: [70, 90],
-            backgroundColor: ['#1e293b', '#3b82f6'],
-            borderRadius: 15,
-            barThickness: 50
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-            y: { beginAtZero: true },
-            x: { grid: { display: false } }
+  <script>
+    (() => {
+      let seconds = 0;
+      const display = document.getElementById('displayTime');
+      const container = document.getElementById('timerContainer');
+      const icon = document.getElementById('timerIcon');
+      setInterval(() => {
+        seconds += 1;
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        display.textContent = String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+        if (seconds >= 240) container.classList.add('timer-warning');
+        if (seconds >= 300) {
+          container.classList.remove('timer-warning');
+          container.classList.add('timer-stop');
+          icon.className = 'fas fa-hourglass-end text-xl';
         }
-    }
-});
-</script>
+      }, 1000);
+    })();
+  </script>
+
+<section id="application-scope" class="max-w-6xl mx-auto px-6 pb-16">
+  <div class="glass p-8 rounded-3xl">
+    <h2 class="text-2xl font-extrabold mb-4">Application Scope</h2>
+    <p class="text-slate-300 leading-relaxed">
+      This project explores how machine learning can interpret chemical-sensor patterns
+      across three application areas: environmental monitoring, hazardous gas recognition,
+      and food freshness classification, including fresh and spoiled states where the
+      selected dataset provides those labels.
+    </p>
+    <p class="text-slate-400 text-sm leading-relaxed mt-3">
+      The framework focuses on chemical-pattern analysis for use across different
+      environmental and consumer-safety settings.
+    </p>
+  </div>
+</section>
 
 </body>
 </html>
